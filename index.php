@@ -17,7 +17,7 @@ $faCssFile = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/
 
 // Define
 // SQL table name you want to use
-$sqlTable = 'fa_icon_table';
+$sqlTable = 'wolf3_fa_icon_table';
 
 // Define
 // SQL field name you want to use
@@ -58,3 +58,10 @@ $sqlQryCreateTable = 'CREATE TABLE `'.$sqlTable.'` (
 $sqlQryInsertData .= ';';
 
 echo $sqlQryCreateTable . '<br /><br />' . $sqlQryInsertData;
+
+$sqlFile = fopen("insert.sql", "w") or die("Unable to open file!");
+
+fwrite($sqlFile, $sqlQryCreateTable);
+fwrite($sqlFile, $sqlQryInsertData);
+
+fclose($sqlFile);
